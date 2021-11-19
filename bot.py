@@ -43,15 +43,13 @@ async def avito_link_message(message: types.Message):
                 handler.write(img_data)
                 name1 += 1
 
-        time.sleep(3)
-
         namepapka = str(folder_name1)
         papka = 'Photos/' + namepapka
         if not os.path.exists(papka):
             os.makedirs(papka)
         name = 17
         try:  # тут обрезаем логотип и ловим экспет на выход из цикла
-            for pic in papka:
+            while name1 !=0:
                 name1 -= 1
                 img = Image.open(str(name1) + '.jpg')
                 #обрезает 17 файлов и выходит из цикла почему то
@@ -62,8 +60,7 @@ async def avito_link_message(message: types.Message):
         except FileNotFoundError:
             print('готово')
 
-        time.sleep(3)
-
+        
         shutil.make_archive(namepapka, 'zip', papka)  # создает ахив с фотками в корневом каталоге(переделать чтобы сохранял в ту же папку)
         shutil.rmtree(papka, ignore_errors=True)
         #await asyncio.sleep(5.0)
