@@ -44,7 +44,7 @@ async def avito_link_message(message: types.Message):
                 name1 += 1
 
         namepapka = str(folder_name1)
-        papka = 'Photos/' + namepapka
+        papka = namepapka
         if not os.path.exists(papka):
             os.makedirs(papka)
         name = 17
