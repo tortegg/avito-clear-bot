@@ -9,9 +9,13 @@ import shutil
 import asyncio
 import time
 
+TOKEN = None
+
+with open("token.txt") as f:
+    TOKEN = f.read().strip()
 
 # Объект бота
-bot = Bot(token="2111875221:AAFCD5tJm8BhSfPhELflFg7rsk4nBv-X6eI")
+bot = Bot(token=TOKEN)
 # Диспетчер для бота
 dp = Dispatcher(bot)
 # Включаем логирование, чтобы не пропустить важные сообщения
